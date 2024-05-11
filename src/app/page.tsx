@@ -1,6 +1,7 @@
 import Star from "@/lib/assets/star-31x31.svg"
 import Arrow from "@/lib/assets/arrow-rotated-10x11.svg"
 import Link from "next/link";
+import LetsConnectBanner from "@/lib/components/LetsConnectBanner";
 
 export default function Home() {
   const clients = [1,2,3];
@@ -127,6 +128,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LetsConnectBanner />
     </main>
   );
 }
