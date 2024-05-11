@@ -10,3 +10,9 @@
     src: url('/fonts/PoliteType/PoliteType-Regular.ttf');
   }
 }
+
+@layer components {
+  .container{
+    @apply mx-auto px-4 max-w-7xl;
+  }
+}
