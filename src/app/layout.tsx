@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from 'next/font/google';
+import localFont from 'next/font/local'
 import "./globals.css";
 import Navbar from "@/lib/components/Navbar";
 
@@ -8,6 +9,8 @@ const inter = Inter({
   display: 'swap',
   variable: '--font-body',
 });
+
+const politeType = localFont({src: '../lib/assets/fonts/PoliteType-Regular.woff2', variable: "--font-display"});
 
 export const metadata: Metadata = {
   title: "Women Land",
@@ -20,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable}`}>
+    <html lang="en" className={`scroll-smooth ${inter.variable} ${politeType.variable}`}>
       <body className="bg-design-background-primary text-design-primary-text">
         <Navbar />
         {children}</body>

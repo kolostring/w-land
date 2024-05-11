@@ -15,8 +15,8 @@ const config: Config = {
       'design-background-secondary':'#35353A'
     },
     fontFamily: {
-      'display': ['PoliteType', 'sans-serif'],
-      'body': ['var(--font-body)', 'sans-serif'],
+      'display': ['var(--font-display)', 'system-ui', 'sans-serif'],
+      'body': ['var(--font-body)', 'system-ui', 'sans-serif'],
     },
   },
   plugins: [],
