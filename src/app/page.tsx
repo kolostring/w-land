@@ -2,6 +2,7 @@ import Star from "@/lib/assets/star-31x31.svg"
 import Arrow from "@/lib/assets/arrow-rotated-10x11.svg"
 import Link from "next/link";
 import LetsConnectBanner from "@/lib/components/LetsConnectBanner";
+import Footer from "@/lib/components/Footer";
 
 export default function Home() {
   const clients = [1,2,3];
@@ -130,6 +131,7 @@ export default function Home() {
       </section>
 
       <LetsConnectBanner />
+      <Footer />
     </main>
   );
 }
