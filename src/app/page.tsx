@@ -7,6 +7,20 @@ export default function Home() {
   const services = [
     "Branding design", "Web design & development", "Communication solutions", 
     "Strategic marketing", "Motion Graphics", "_placeholder"];
+  
+  const projects = [{
+    title: "Climate Animation I",
+    subtitle: "Design / Motion Graphics",
+  },
+  {
+    title: "Climate Animation II",
+    subtitle: "Design / Motion Graphics",
+  },
+  {
+    title: "Climate Animation III",
+    subtitle: "Design / Motion Graphics",
+  },
+  ]
 
   return (
     <main className="container">
@@ -31,11 +45,11 @@ export default function Home() {
 
         <hr />
 
-        <div className="grid grid-cols-[1fr_2fr] gap-2 mb-24">
+        <div className="grid grid-cols-3 gap-x-14 mb-24">
           <div className="text-design-accent">
             <Star/>
           </div>
-          <div>
+          <div className="col-span-2">
             <h2 className="text-3xl font-display mb-4">Jane Garsia Studio is an independent fullservice studio creating awesome digital experiences and solutions. We are an award winning group specializing in branding, design and engineering. Our mission is to make work meaningful.</h2>
 
             <p className="mb-10">With nearly a decade of experience in communication, journalism, politics, development, and visual storytelling, our previous experiences include working in academia, the United Nations, media outlets, NGOs and philanthropic organizations. As a team, we have also sought further education, with master&apos;s degrees and an ongoing Ph.D. in our respective fields. <br /><br />
@@ -44,7 +58,7 @@ export default function Home() {
             <h3 className="uppercase mb-10">Our clients</h3>
             <div className="grid grid-cols-3 gap-10">
               {clients.map((client)=>{
-                return <div key={client} className="rounded-2xl bg-design-background-secondary h-16"></div>
+                return <div key={client} className="rounded-2xl bg-design-background-secondary aspect-[3/1]"></div>
               })}
             </div>
           </div>
@@ -62,17 +76,51 @@ export default function Home() {
 
         <hr />
 
-        <div className="grid grid-cols-[1fr_2fr] gap-2 mb-24">
+        <div className="grid grid-cols-3 gap-x-14 mb-24">
           <Star className="text-design-accent"/>
 
-          <h2 className="text-3xl font-display mb-12">Here are some select projects that showcase my passion for creating memorable web experiences, products, and brands to life.</h2>
+          <h2 className="col-span-2 text-3xl font-display mb-12">Here are some select projects that showcase my passion for creating memorable web experiences, products, and brands to life.</h2>
           
-          <div className="grid grid-cols-3 col-span-2 gap-14">
+          <div className="grid grid-cols-3 col-span-3 gap-14">
             {services.map((service)=>{
               return <Link href={"/services"} key={service} className="grid grid-cols-[1fr_auto] p-8 pr-6 rounded-2xl bg-design-primary-text hover:bg-design-accent [&:hover>div]:bg-design-background-primary [&:hover>div]:text-design-primary-text transition-colors">
                 <h2 className="font-display text-4xl max-w-[12ch] text-design-background-primary">{service}</h2>
-                <div className="flex w-[39px] h-[39px] rounded-full self-end text-design-background-primary bg-design-accent transition-colors">
+                <div className="flex w-11 aspect-square rounded-full self-end text-design-background-primary bg-design-accent transition-colors">
                   <Arrow className="h-5 w-5 m-auto"/>
+                </div>
+              </Link>
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="services">
+        <div className="flex uppercase text-sm">
+          <h3>W.Land projects</h3>
+          <Link className="flex gap-2 ml-auto items-center text-design-accent" href="/services">
+            <h3>Learn More</h3>
+            <Arrow/>
+          </Link>
+        </div>
+
+        <hr />
+
+        <div className="grid grid-cols-3 gap-x-14 mb-24">
+          <Star className="text-design-accent"/>
+
+          <h2 className="col-span-2 text-3xl font-display mb-12">Here are some select projects that showcase my passion for creating memorable web experiences, products, and brands to life.</h2>
+          
+          <div className="grid grid-cols-3 col-span-3 gap-14">
+            {projects.map(({title, subtitle})=>{
+              return <Link href={"/services"} key={title} className="[&:hover_.arrow]:opacity-100">
+                <div className="mb-4 aspect-[7/10] rounded-2xl bg-design-background-secondary"></div>
+
+                <div className="grid grid-cols-[9fr_min-content]">
+                  <h3 className="font-display text-3xl leading-none">{title}</h3>
+                  <h3 className="uppercase col-start-1 text-xs text-design-accent">{subtitle}</h3>
+                  <div className="arrow flex col-start-2 row-start-1 row-span-2 w-11 aspect-square rounded-full self-center bg-design-accent opacity-0 transition-opacity">
+                    <Arrow className="m-auto h-5 w-5 text-design-background-primary"/>
+                  </div>
                 </div>
               </Link>
             })}
