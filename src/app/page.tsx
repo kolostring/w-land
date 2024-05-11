@@ -4,6 +4,9 @@ import Link from "next/link";
 
 export default function Home() {
   const clients = [1,2,3];
+  const services = [
+    "Branding design", "Web design & development", "Communication solutions", 
+    "Strategic marketing", "Motion Graphics", "_placeholder"];
 
   return (
     <main className="container">
@@ -17,7 +20,6 @@ export default function Home() {
         </div>
       </section>
 
-
       <section className="about">
         <div className="flex uppercase text-sm">
           <h3>About W.Land</h3>
@@ -29,7 +31,7 @@ export default function Home() {
 
         <hr />
 
-        <div className="grid grid-cols-[1fr_2fr] gap-2 mb-16">
+        <div className="grid grid-cols-[1fr_2fr] gap-2 mb-24">
           <div className="text-design-accent">
             <Star/>
           </div>
@@ -49,6 +51,34 @@ export default function Home() {
         </div>
       </section>
       
+      <section className="services">
+        <div className="flex uppercase text-sm">
+          <h3>W.Land services</h3>
+          <Link className="flex gap-2 ml-auto items-center text-design-accent" href="/services">
+            <h3>Learn More</h3>
+            <Arrow/>
+          </Link>
+        </div>
+
+        <hr />
+
+        <div className="grid grid-cols-[1fr_2fr] gap-2 mb-24">
+          <Star className="text-design-accent"/>
+
+          <h2 className="text-3xl font-display mb-12">Here are some select projects that showcase my passion for creating memorable web experiences, products, and brands to life.</h2>
+          
+          <div className="grid grid-cols-3 col-span-2 gap-14">
+            {services.map((service)=>{
+              return <Link href={"/services"} key={service} className="grid grid-cols-[1fr_auto] p-8 pr-6 rounded-2xl bg-design-primary-text hover:bg-design-accent [&:hover>div]:bg-design-background-primary [&:hover>div]:text-design-primary-text transition-colors">
+                <h2 className="font-display text-4xl max-w-[12ch] text-design-background-primary">{service}</h2>
+                <div className="flex w-[39px] h-[39px] rounded-full self-end text-design-background-primary bg-design-accent transition-colors">
+                  <Arrow className="h-5 w-5 m-auto"/>
+                </div>
+              </Link>
+            })}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
