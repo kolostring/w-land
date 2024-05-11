@@ -26,17 +26,20 @@ export default function Home() {
 
   return (
     <main className="container">
-      <section className="hero flex flex-col justify-center h-svh max-w-[786px] mx-auto">
-        <h1 className="font-display text-[108px] leading-none">Women Land Creative Studio</h1>
-        <div className="grid grid-cols-[1fr_auto_1fr] gap-8 my-5">
+      <section className="hero grid grid-cols-1 grid-rows-[2fr_auto_1fr] h-svh max-w-[786px] mx-auto">
+        <h1 className="self-end font-display mb-5 text-[108px] leading-none">Women Land Creative Studio</h1>
+        <div className="grid grid-cols-[1fr_auto_1fr] gap-8">
           <Star className="text-design-accent col-start-2"/>
           <h3 className="col-start-3 text-justify uppercase">
           WE ARE A FULL-SERVICE CREATIVE STUDIO CREATING AWESOME DIGITAL EXPERIENCES AND SOLUTIONS. OUR MISSION IS TO MAKE WORK PROCESS MEANINGFUL.
           </h3>
         </div>
+        <Link href="/#about" className="self-center flex mx-auto border border-design-primary-text rounded-full w-20 aspect-square">
+          <Arrow className="m-auto rotate-45 h-9 w-9 stroke-[0.4]"/>
+        </Link>
       </section>
 
-      <section className="about">
+      <section id="about" className="about">
         <div className="flex uppercase text-sm">
           <h3>About W.Land</h3>
           <Link className="flex gap-2 ml-auto items-center text-design-accent" href="/about">

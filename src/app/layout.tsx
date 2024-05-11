@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable}`}>
+    <html lang="en" className={`scroll-smooth ${inter.variable}`}>
       <body className="bg-design-background-primary text-design-primary-text">
         <Navbar />
         {children}</body>
