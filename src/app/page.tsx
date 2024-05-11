@@ -16,6 +16,39 @@ export default function Home() {
           </h3>
         </div>
       </section>
+
+
+      <section className="about">
+        <div className="flex uppercase text-sm">
+          <h3>About W.Land</h3>
+          <Link className="flex gap-2 ml-auto items-center text-design-accent" href="/about">
+            <h3>Learn More</h3>
+            <Arrow/>
+          </Link>
+        </div>
+
+        <hr />
+
+        <div className="grid grid-cols-[1fr_2fr] gap-2 mb-16">
+          <div className="text-design-accent">
+            <Star/>
+          </div>
+          <div>
+            <h2 className="text-3xl font-display mb-4">Jane Garsia Studio is an independent fullservice studio creating awesome digital experiences and solutions. We are an award winning group specializing in branding, design and engineering. Our mission is to make work meaningful.</h2>
+
+            <p className="mb-10">With nearly a decade of experience in communication, journalism, politics, development, and visual storytelling, our previous experiences include working in academia, the United Nations, media outlets, NGOs and philanthropic organizations. As a team, we have also sought further education, with master&apos;s degrees and an ongoing Ph.D. in our respective fields. <br /><br />
+            As part of our work, we have obtained several recognitions, such as the LASA Media Award 2023, one nomination for Gabo&apos;s top 10 innovation in 2022, CELAP 2021 Investigative Journalism Award, and two Chevening scholarships in 2018.</p>
+
+            <h3 className="uppercase mb-10">Our clients</h3>
+            <div className="grid grid-cols-3 gap-10">
+              {clients.map((client)=>{
+                return <div key={client} className="rounded-2xl bg-design-background-secondary h-16"></div>
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+      
     </main>
   );
 }

@@ -9,6 +9,10 @@
     font-weight: 400;
     src: url('/fonts/PoliteType/PoliteType-Regular.ttf');
   }
+
+  hr{
+    @apply h-1 w-full text-design-secondary-text mt-3 mb-8;
+  }
 }
 
 @layer components {
