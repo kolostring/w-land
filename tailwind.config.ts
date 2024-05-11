@@ -12,7 +12,7 @@ const config: Config = {
       'design-primary-text': '#FFFFFF',
       'design-secondary-text': '#BABABA',
       'design-background-primary': '#1F1F24',
-      'desing-background-secondary':'#35353A'
+      'design-background-secondary':'#35353A'
     },
     fontFamily: {
       'display': ['PoliteType', 'sans-serif'],
