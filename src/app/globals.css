@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 @layer base {
+  h1{
+    @apply font-display text-[120px] tracking-tighter leading-none;
+  }
+  h3{
+    @apply font-display text-[30px] tracking-[-0.01rem] leading-9;
+  }
+  p{
+    @apply leading-[26px] tracking-[-0.01rem];
+  }
   hr{
     @apply h-1 w-full text-design-secondary-text mt-3 mb-8;
   }

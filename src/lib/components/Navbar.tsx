@@ -47,7 +47,7 @@ export default function Navbar(){
             key={href}
             className={`flex flex-col ${pathname.includes(href) ? "text-design-accent" : ""}`}
             >
-              <h3 className="block px-[2px] my-auto">{text}</h3>
+              <span className="block px-[2px] my-auto">{text}</span>
               {
                 pathname.includes(href) && 
                 <div className={"h-[2px] bg-design-accent"}></div>
@@ -57,7 +57,7 @@ export default function Navbar(){
         }
 
         <Link className="flex px-8 py-2 items-center gap-1 rounded-full font-medium text-design-background-primary bg-design-accent" href={"/lets-talk"}>
-          <h3>Let&apos;s talk</h3>
+          <span>Let&apos;s talk</span>
           <Arrow height="1rem"/>
         </Link>
       </div>

@@ -26,13 +26,13 @@ export default function Home() {
 
   return (
     <main className="container">
-      <section className="hero grid grid-cols-1 grid-rows-[2fr_auto_1fr] h-svh max-w-[786px] mx-auto">
-        <h1 className="self-end font-display mb-5 text-[108px] leading-none">Women Land Creative Studio</h1>
+      <section className="hero grid grid-cols-1 grid-rows-[auto_auto_1fr] pt-44 h-svh max-w-[786px] mx-auto">
+        <h1 className="mb-5">Women Land Creative Studio</h1>
         <div className="grid grid-cols-[1fr_auto_1fr] gap-8">
           <Star className="text-design-accent col-start-2"/>
-          <h3 className="col-start-3 text-justify uppercase">
+          <p className="col-start-3 text-justify uppercase">
           WE ARE A FULL-SERVICE CREATIVE STUDIO CREATING AWESOME DIGITAL EXPERIENCES AND SOLUTIONS. OUR MISSION IS TO MAKE WORK PROCESS MEANINGFUL.
-          </h3>
+          </p>
         </div>
         <Link href="/#about" className="self-center flex mx-auto border border-design-primary-text rounded-full w-20 aspect-square">
           <Arrow className="m-auto rotate-45 h-9 w-9 stroke-[0.4]"/>
@@ -41,9 +41,9 @@ export default function Home() {
 
       <section id="about" className="about">
         <div className="flex uppercase text-sm">
-          <h3>About W.Land</h3>
+          <h2>About W.Land</h2>
           <Link className="flex gap-2 ml-auto items-center text-design-accent" href="/about">
-            <h3>Learn More</h3>
+            <span>Learn More</span>
             <Arrow/>
           </Link>
         </div>
@@ -55,12 +55,12 @@ export default function Home() {
             <Star/>
           </div>
           <div className="col-span-2">
-            <h2 className="text-3xl font-display mb-4">Jane Garsia Studio is an independent fullservice studio creating awesome digital experiences and solutions. We are an award winning group specializing in branding, design and engineering. Our mission is to make work meaningful.</h2>
+            <h3 className="mb-4">Jane Garsia Studio is an independent fullservice studio creating awesome digital experiences and solutions. We are an award winning group specializing in branding, design and engineering. Our mission is to make work meaningful.</h3>
 
             <p className="mb-10">With nearly a decade of experience in communication, journalism, politics, development, and visual storytelling, our previous experiences include working in academia, the United Nations, media outlets, NGOs and philanthropic organizations. As a team, we have also sought further education, with master&apos;s degrees and an ongoing Ph.D. in our respective fields. <br /><br />
             As part of our work, we have obtained several recognitions, such as the LASA Media Award 2023, one nomination for Gabo&apos;s top 10 innovation in 2022, CELAP 2021 Investigative Journalism Award, and two Chevening scholarships in 2018.</p>
 
-            <h3 className="uppercase mb-10">Our clients</h3>
+            <h2 className="uppercase text-sm mb-10">Our clients</h2>
             <div className="grid grid-cols-3 gap-10">
               {clients.map((client)=>{
                 return <div key={client} className="rounded-2xl bg-design-background-secondary aspect-[3/1]"></div>
@@ -72,9 +72,9 @@ export default function Home() {
       
       <section className="services">
         <div className="flex uppercase text-sm">
-          <h3>W.Land services</h3>
+          <h2>W.Land services</h2>
           <Link className="flex gap-2 ml-auto items-center text-design-accent" href="/services">
-            <h3>Learn More</h3>
+            <span>Learn More</span>
             <Arrow/>
           </Link>
         </div>
@@ -84,12 +84,12 @@ export default function Home() {
         <div className="grid grid-cols-3 gap-x-14 mb-24">
           <Star className="text-design-accent"/>
 
-          <h2 className="col-span-2 text-3xl font-display mb-12">Here are some select projects that showcase my passion for creating memorable web experiences, products, and brands to life.</h2>
+          <h3 className="col-span-2 mb-12">Here are some select projects that showcase my passion for creating memorable web experiences, products, and brands to life.</h3>
           
           <div className="grid grid-cols-3 col-span-3 gap-14">
             {services.map((service)=>{
               return <Link href={"/services"} key={service} className="grid grid-cols-[1fr_auto] p-8 pr-6 rounded-2xl bg-design-primary-text hover:bg-design-accent [&:hover>div]:bg-design-background-primary [&:hover>div]:text-design-primary-text transition-colors">
-                <h2 className="font-display text-4xl max-w-[12ch] text-design-background-primary">{service}</h2>
+                <h3 className="text-4xl tracking-tight max-w-[12ch] text-design-background-primary">{service}</h3>
                 <div className="flex w-11 aspect-square rounded-full self-end text-design-background-primary bg-design-accent transition-colors">
                   <Arrow className="h-5 w-5 m-auto"/>
                 </div>
@@ -101,9 +101,9 @@ export default function Home() {
 
       <section className="services">
         <div className="flex uppercase text-sm">
-          <h3>W.Land projects</h3>
+          <h2>W.Land projects</h2>
           <Link className="flex gap-2 ml-auto items-center text-design-accent" href="/services">
-            <h3>Learn More</h3>
+            <span>View all projects</span>
             <Arrow/>
           </Link>
         </div>
@@ -113,7 +113,7 @@ export default function Home() {
         <div className="grid grid-cols-3 gap-x-14 mb-24">
           <Star className="text-design-accent"/>
 
-          <h2 className="col-span-2 text-3xl font-display mb-12">Here are some select projects that showcase my passion for creating memorable web experiences, products, and brands to life.</h2>
+          <h3 className="col-span-2 mb-12">Here are some select projects that showcase my passion for creating memorable web experiences, products, and brands to life.</h3>
           
           <div className="grid grid-cols-3 col-span-3 gap-14">
             {projects.map(({title, subtitle})=>{
@@ -121,8 +121,8 @@ export default function Home() {
                 <div className="mb-4 aspect-[7/10] rounded-2xl bg-design-background-secondary"></div>
 
                 <div className="grid grid-cols-[9fr_min-content]">
-                  <h3 className="font-display text-3xl leading-none">{title}</h3>
-                  <h3 className="uppercase col-start-1 text-xs text-design-accent">{subtitle}</h3>
+                  <h3>{title}</h3>
+                  <h4 className="uppercase col-start-1 text-xs text-design-accent">{subtitle}</h4>
                   <div className="arrow flex col-start-2 row-start-1 row-span-2 w-11 aspect-square rounded-full self-center bg-design-accent opacity-0 transition-opacity">
                     <Arrow className="m-auto h-5 w-5 text-design-background-primary"/>
                   </div>
