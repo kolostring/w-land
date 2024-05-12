@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import localFont from 'next/font/local'
 import "./globals.css";
 import Navbar from "@/lib/components/Navbar";
+import Footer from "@/lib/components/Footer";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,9 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`scroll-smooth ${inter.variable} ${politeType.variable}`}>
-      <body className="bg-design-background-primary text-design-primary-text">
+      <body className="font-body bg-design-background-primary text-design-primary-text">
         <Navbar />
-        {children}</body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

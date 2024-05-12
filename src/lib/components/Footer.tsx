@@ -8,7 +8,7 @@ const links : {text: string, href: string}[] = [
 ] 
 
 export default function Footer(){
-  return <footer className="grid grid-cols-3 mt-7 mb-11">
+  return <footer className="container grid grid-cols-3 mt-7 mb-11 text-design-primary-text">
     <Link href={"/"} className="logo">
         <Logo/>
     </Link>
