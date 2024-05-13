@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Logo from "@/lib/assets/white-logo-79x19.svg"
 import Arrow from "@/lib/assets/arrow-rotated-10x11.svg"
 import useScroll from "../hooks/useScroll";
-import { useEffect, useRef} from "react";
+import { useLayoutEffect, useRef} from "react";
 
 const links : {text: string, href: string}[] = [
   {text: "About", href: "/about"},
@@ -15,25 +15,35 @@ const links : {text: string, href: string}[] = [
 export default function Navbar(){
   const pathname = usePathname();
 
-  const currentScroll = useScroll();
+  const {scrollPosition, isScrolling} = useScroll();
   const lastScrollRef = useRef<number>(0);
   const scrollVisibilityPercentRef = useRef<number>(0);
 
   const navRef = useRef<HTMLElement>(null);
   
-  useEffect(()=>{
+  const roundVisibility = ()=>{
+    scrollVisibilityPercentRef.current = scrollVisibilityPercentRef.current < -40 ? -100 : 0;
+
+    return scrollVisibilityPercentRef.current;
+  }
+  
+  useLayoutEffect(()=>{
     const height = navRef.current?.getBoundingClientRect().height;
     if(height){
-      const deltaTransform = (lastScrollRef.current-currentScroll)/height * 100;
-      const transform = scrollVisibilityPercentRef.current+deltaTransform;
+      const deltaTransformPercent = (lastScrollRef.current-scrollPosition)/height * 100;
+      const transform = scrollVisibilityPercentRef.current+deltaTransformPercent;
 
-      scrollVisibilityPercentRef.current = (Math.max(-100, Math.min(0, transform)));
+      scrollVisibilityPercentRef.current = Math.trunc(Math.max(-100, Math.min(0, transform)));
     }
 
-    lastScrollRef.current = currentScroll;
-  }, [currentScroll]);
+    lastScrollRef.current = scrollPosition;
+  }, [scrollPosition]);
 
-  return <nav ref={navRef} className={`w-full fixed bg-opacity-90 bg-design-background-primary backdrop-blur-sm`} style={{transform: `translate(0px, ${scrollVisibilityPercentRef.current}%)`}}>
+  return <nav 
+  ref={navRef} 
+  className={`w-full fixed bg-opacity-90 bg-design-background-primary backdrop-blur-sm ${!isScrolling ? "transition-transform" : ""}`} 
+  style={{transform: `translate(0px, ${isScrolling ? scrollVisibilityPercentRef.current : roundVisibility()}%)`}}
+  >
     <div className="container flex items-center font-body mt-9 mb-6">
       <Link href={"/"} className="logo">
         <Logo/>
