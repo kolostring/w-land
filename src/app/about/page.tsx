@@ -120,7 +120,7 @@ export default function AboutUs(){
       </div>
     </section>
 
-    <ProjectsSection maxCount={3} tags={[]}/>
+    <ProjectsSection />
     <LetsConnectBanner />
   </main>
 }

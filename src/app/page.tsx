@@ -85,7 +85,8 @@ export default function Home() {
         </div>
       </section>
       
-      <ProjectsSection maxCount={3} tags={[]}/>
+      
+      <ProjectsSection />
       <LetsConnectBanner />
     </main>
   );
