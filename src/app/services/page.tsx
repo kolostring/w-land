@@ -65,7 +65,7 @@ export default function Services(){
       </div>
     </section>
 
-    <ProjectsSection />
+    <ProjectsSection maxCount={3} tags={[]} />
     <LetsConnectBanner />
   </main>
 }
