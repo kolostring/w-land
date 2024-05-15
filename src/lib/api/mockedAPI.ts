@@ -4,7 +4,7 @@ const placeholderProject :Project = {
   id: "123",
   title: "Matria",
   description: "With nearly a decade of experience in communication, journalism, politics, development, and visual storytelling, our previous experiences include working in academia, the United Nations, media outlets, NGOs and philanthropic organizations. As a team, we have also sought further education, with master's degrees and an ongoing Ph.D. in our respective fields.",
-  services: ["branding", "newsletter"],
+  servicesTags: ["branding", "newsletter"],
 };
 
 export async function fetchToolsAndSkills(): Promise<string[]>{

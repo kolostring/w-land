@@ -38,7 +38,7 @@ export default function ProjectsSelection({tags, projects}: ProjectsSelectionPro
       </div>
       
       <div className="grid-cols-1 min-h-12 transition-transform">
-        <FilteredProjects maxCount={9} projects={projects} tags={filteredTags}/>
+        <FilteredProjects maxCount={9} projects={projects} selectedTags={filteredTags}/>
       </div>
   </section>
 }

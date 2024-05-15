@@ -23,7 +23,7 @@ export default async function ProjectsSection(){
 
     <h3 className="col-span-2 mb-12">Here are some select projects that showcase my passion for creating memorable web experiences, products, and brands to life.</h3>
     
-    <FilteredProjects maxCount={3} tags={[]} projects={await fetchProjects()}/>
+    <FilteredProjects maxCount={3} selectedTags={[]} projects={await fetchProjects()}/>
   </div>
 </section>
 }

@@ -2,7 +2,7 @@ export type Project = {
   id: string,
   title: string,
   description: string,
-  services: string[],
+  servicesTags: string[],
 }
 
 export type Member = {

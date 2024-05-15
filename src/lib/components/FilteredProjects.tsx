@@ -5,14 +5,14 @@ import { Project } from "../models/types";
 type FilteredProjectsProps = {
   projects: Project[],
   maxCount: number,
-  tags: string[]
+  selectedTags: string[]
 }
 
-export default function FilteredProjects({projects, maxCount, tags}: FilteredProjectsProps){
+export default function FilteredProjects({projects, maxCount, selectedTags}: FilteredProjectsProps){
   
-  const servicesAreTagged = (services: string[])=>{
-    return services.reduce((current, service)=>{
-      return current || tags.reduce((current, tag)=>{
+  const servicesAreSelected = (servicesTags: string[])=>{
+    return servicesTags.reduce((current, service)=>{
+      return current || selectedTags.reduce((current, tag)=>{
         return current || tag === service}, false);
     }, false)
   }
@@ -20,9 +20,9 @@ export default function FilteredProjects({projects, maxCount, tags}: FilteredPro
   return <div className="grid grid-cols-3 col-span-3 gap-14">
     {
       projects
-        .filter(({services}) => (tags.length === 0 || servicesAreTagged(services)))
+        .filter(({servicesTags}) => (selectedTags.length === 0 || servicesAreSelected(servicesTags)))
         .slice(0, maxCount)
-        .map(({id, title, services})=>{
+        .map(({id, title, servicesTags: services})=>{
       return <Link href={"/services"} key={id} className="[&:hover_.arrow]:opacity-100">
         <div className="mb-4 aspect-[7/10] rounded-2xl bg-design-background-secondary"></div>
 
