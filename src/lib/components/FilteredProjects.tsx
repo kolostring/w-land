@@ -1,30 +1,15 @@
 import Arrow from "@/lib/assets/arrow-rotated-10x11.svg";
 import Link from "next/link";
-
-const placeholderProject = {
-  id: "123",
-  title: "Matria",
-  description: "With nearly a decade of experience in communication, journalism, politics, development, and visual storytelling, our previous experiences include working in academia, the United Nations, media outlets, NGOs and philanthropic organizations. As a team, we have also sought further education, with master's degrees and an ongoing Ph.D. in our respective fields.",
-  services: ["branding", "newsletter"],
-  body: <>
-  </>
-};
-
-const projects = (()=>{
-  const arr = [];
-  for(let i = 0; i < 9; i++){
-    arr.push({...placeholderProject ,id: Math.random()})
-  }
-  
-  return arr;
-})();
+import { Project } from "../models/types";
 
 type FilteredProjectsProps = {
+  projects: Project[],
   maxCount: number,
   tags: string[]
 }
 
-export default function FilteredProjects({maxCount, tags}: FilteredProjectsProps){
+export default function FilteredProjects({projects, maxCount, tags}: FilteredProjectsProps){
+  
   const servicesAreTagged = (services: string[])=>{
     return services.reduce((current, service)=>{
       return current || tags.reduce((current, tag)=>{

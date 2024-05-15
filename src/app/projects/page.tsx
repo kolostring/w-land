@@ -1,24 +1,10 @@
-"use client"
+import { fetchProjects, fetchServicesTags } from "@/lib/api/mockedAPI";
 import Star from "@/lib/assets/star-31x31.svg"
-import FilteredProjects from "@/lib/components/FilteredProjects";
 import LetsConnectBanner from "@/lib/components/LetsConnectBanner";
-import { useEffect, useState } from "react";
+import ProjectsSelection from "@/lib/components/ProjectsSelection";
 
-const filterTags = ["illustration", "branding", "campaign", "social media", "website", "animation"];
 
-export default function Projects(){
-  const [filteredTags, setFilteredTags] = useState<string[]>([]);
-
-  const handleClick = (event: React.MouseEvent)=>{
-    const handledTag = (event.target as HTMLButtonElement).innerText;
-    
-    if(filteredTags.includes(handledTag)){
-      setFilteredTags(filteredTags.filter((tag)=>{return handledTag !== tag}));
-    }else{
-      setFilteredTags(filteredTags.concat([handledTag]));
-    }
-  }
-
+export default async function Projects(){
   return <main className="container">
     <section className="hero pt-44">
       <h1 className="mb-5">Selected Projects</h1>
@@ -33,26 +19,7 @@ export default function Projects(){
       </div>
     </section>
 
-    <section className="services mb-24">
-      <div className="flex uppercase text-sm">
-        <h2>Projects Selection</h2>
-      </div>
-
-      <hr />
-
-      <div className="mb-14">
-        {filterTags.map((tag) => {
-          return <span key={tag}>
-            <button className={`px-4 py-2 rounded-full border mr-4 transition-colors ${filteredTags.includes(tag) ? "bg-design-accent border-design-accent text-design-background-primary": ""} `} onClick={handleClick}>{tag}</button>
-          </span>
-        })}
-      </div>
-      
-      <div className="grid-cols-1 min-h-12 transition-transform">
-        <FilteredProjects maxCount={9} tags={filteredTags}/>
-      </div>
-    </section>
-
+    <ProjectsSelection projects={await fetchProjects()} tags={await fetchServicesTags()}/>
     <LetsConnectBanner />
   </main>
 }
