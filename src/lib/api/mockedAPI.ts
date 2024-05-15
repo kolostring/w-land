@@ -1,4 +1,4 @@
-import { Project } from "../models/types";
+import { Member, Project } from "../models/types";
 
 const placeholderProject :Project = {
   id: "123",
@@ -7,7 +7,53 @@ const placeholderProject :Project = {
   services: ["branding", "newsletter"],
 };
 
-export async function fetchProjects(){
+export async function fetchToolsAndSkills(): Promise<string[]>{
+  return ["Adobe Suite", "Canva", "Mailchip", "Figma", "Figma", "Adobe Suite", "Adobe Suite", "Canva", "Mailchip", "Figma", "Figma"];
+}
+
+export async function fetchMembers(): Promise<Member[]>{
+  return [
+    {
+      fullName: "Yery Menéndez",
+      role: "Communication for Development"
+    },
+    {
+      fullName: "Anays Almenares",
+      role: "Journalist and researcher"
+    },
+    {
+      fullName: "Rocio Baró",
+      role: "Communication for Development"
+    },
+    {
+      fullName: "Janet Aguilar",
+      role: "graphic Designer & developer"
+    },
+    {
+      fullName: "Wendy Valladares",
+      role: "Graphic designer"
+    },
+  ]
+}
+
+export async function fetchCollaborators(): Promise<Member[]>{
+  return [
+    {
+      fullName: "Iván del Toro Hernández",
+      role: "Communication for Development"
+    },
+    {
+      fullName: "Willy Pedroso",
+      role: "Journalist and researcher"
+    },
+    {
+      fullName: "Alejandro Apellido",
+      role: "Communication for Development"
+    },
+  ]
+}
+
+export async function fetchProjects(): Promise<Project[]>{
   const arr = [];
   for(let i = 0; i < 9; i++){
     arr.push({...placeholderProject ,id: ""+Math.random()})
@@ -16,6 +62,6 @@ export async function fetchProjects(){
   return arr;
 }
 
-export async function fetchServicesTags(){
+export async function fetchServicesTags(): Promise<string[]>{
   return ["illustration", "branding", "campaign", "social media", "website", "animation"];
 }

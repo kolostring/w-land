@@ -1,50 +1,15 @@
+import { fetchCollaborators, fetchMembers, fetchToolsAndSkills } from "@/lib/api/mockedAPI";
 import Star from "@/lib/assets/star-31x31.svg"
 import LetsConnectBanner from "@/lib/components/LetsConnectBanner";
 import ProjectsSection from "@/lib/components/ProjectsSection";
 
-const skillSet = ["Adobe Suite", "Canva", "Mailchip", "Figma", "Figma", "Adobe Suite", "Adobe Suite", "Canva", "Mailchip", "Figma", "Figma"];
-
-const team = [
-  {
-    fullName: "Yery Menéndez",
-    role: "Communication for Development"
-  },
-  {
-    fullName: "Anays Almenares",
-    role: "Journalist and researcher"
-  },
-  {
-    fullName: "Rocio Baró",
-    role: "Communication for Development"
-  },
-  {
-    fullName: "Janet Aguilar",
-    role: "graphic Designer & developer"
-  },
-  {
-    fullName: "Wendy Valladares",
-    role: "Graphic designer"
-  },
-]
-
-const collaborators = [
-  {
-    fullName: "Iván del Toro Hernández",
-    role: "Communication for Development"
-  },
-  {
-    fullName: "Willy Pedroso",
-    role: "Journalist and researcher"
-  },
-  {
-    fullName: "Alejandro Apellido",
-    role: "Communication for Development"
-  },
-]
-
 const clients = [1,2,3];
 
-export default function AboutUs(){
+export default async function AboutUs(){
+  const skillSet = await fetchToolsAndSkills();
+  const team = await fetchMembers();
+  const collaborators = await fetchCollaborators();
+
   return <main className="container">
     <section className="hero pt-44">
       <h1 className="mb-5">About Us</h1>

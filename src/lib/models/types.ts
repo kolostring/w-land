@@ -4,3 +4,8 @@ export type Project = {
   description: string,
   services: string[],
 }
+
+export type Member = {
+  fullName: string,
+  role: string
+}
