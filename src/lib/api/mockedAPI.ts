@@ -1,4 +1,4 @@
-import { Member, Project } from "../models/types";
+import { Member, Project, Service } from "../models/types";
 
 const placeholderProject :Project = {
   id: "123",
@@ -49,6 +49,35 @@ export async function fetchCollaborators(): Promise<Member[]>{
     {
       fullName: "Alejandro Apellido",
       role: "Communication for Development"
+    },
+  ]
+}
+
+export async function fetchServices(): Promise<Service[]>{
+  return [
+    {
+      title: "Branding design",
+      descriptionList: ["Helping organizations create or enhance their brand identities: logos, color palettes, typography, and developing brand guidelines for consistent visual representation."]
+    },
+    {
+      title: "Web design & development",
+      descriptionList: ["Website design and development services to create visually appealing, user-friendly, and functional websites.", "UI/UX design, responsive layouts, and content organization."]
+    },
+    {
+      title: "Communication solutions",
+      descriptionList: ["Research Services. Primary and secondary research, fact-checking, data analysis, and investigative research.", "Knowledge management products. Comprehensive and informative guides, providing in-depth explanations. Thorough research, clear writing, and visuals."]
+    },
+    {
+      title: "Strategic marketing",
+      descriptionList: ["Creation of strategic communication products such as Communication strategies, communications plans, and campaigns.", "Creation of highly interactive newsletters following best practices of email marketing, internal communications, or customer engagement."]
+    },
+    {
+      title: "Motion graphics",
+      descriptionList: ["Video explainers, data visuals, documentary, and fact-checking (using the International Fact-checking Network methodology).", "Motion graphics and 3D animations", "Promotional videos."]
+    },
+    {
+      title: "_placeholder",
+      descriptionList: ["Information Organization. Structuring and categorizing data, content, and knowledge to ensure easy retrieval and efficient management.", "Content Creation, Social Media Management and investigative journalism."]
     },
   ]
 }
