@@ -22,8 +22,8 @@ export default function FilteredProjects({projects, maxCount, selectedTags}: Fil
       projects
         .filter(({servicesTags}) => (selectedTags.length === 0 || servicesAreSelected(servicesTags)))
         .slice(0, maxCount)
-        .map(({id, title, servicesTags: services})=>{
-      return <Link href={"/services"} key={id} className="[&:hover_.arrow]:opacity-100">
+        .map(({slug, title, servicesTags: services})=>{
+      return <Link href={`/projects/${slug}`} key={slug} className="[&:hover_.arrow]:opacity-100">
         <div className="mb-4 aspect-[7/10] rounded-2xl bg-design-background-secondary"></div>
 
         <div className="grid grid-cols-[9fr_min-content]">

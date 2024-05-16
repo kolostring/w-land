@@ -1,6 +1,6 @@
 export type Project = {
-  id: string,
   title: string,
+  slug: string,
   description: string,
   servicesTags: string[],
 }
@@ -12,5 +12,6 @@ export type Member = {
 
 export type Service = {
   title: string,
+  tag: string,
   descriptionList: string[]
 }
