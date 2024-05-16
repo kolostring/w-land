@@ -1,4 +1,5 @@
-import { fetchCollaborators, fetchMembers, fetchToolsAndSkills } from "@/lib/api/mockedAPI";
+import fetchTeamRest from "@/lib/api/fetchTeamRest";
+import { fetchCollaborators, fetchToolsAndSkills } from "@/lib/api/mockedAPI";
 import Star from "@/lib/assets/star-31x31.svg"
 import LetsConnectBanner from "@/lib/components/LetsConnectBanner";
 import ProjectsSection from "@/lib/components/ProjectsSection";
@@ -7,7 +8,7 @@ const clients = [1,2,3];
 
 export default async function AboutUs(){
   const skillSet = await fetchToolsAndSkills();
-  const team = await fetchMembers();
+  const team = await fetchTeamRest();
   const collaborators = await fetchCollaborators();
 
   return <main className="container">
