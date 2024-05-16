@@ -1,16 +1,9 @@
+import { ServicesResponse } from "../models/responseTypes";
 import { Service } from "../models/types";
-import fetchData, { BStory } from "./storyblokAPI"
-
-type ServicesResponse = BStory & {
-  content: {
-    tag: string,
-    title: string,
-    description: string,
-  }
-}
+import fetchDataList from "./storyblokAPI"
 
 export default async function fetchServicesRest(): Promise<Service[]>{
-  const responseArr =(await fetchData("services/*")) as ServicesResponse[];
+  const responseArr =(await fetchDataList("services/*")) as ServicesResponse[];
   
   return responseArr.map((resp)=>{
     return {
