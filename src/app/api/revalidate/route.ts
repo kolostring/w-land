@@ -1,9 +1,9 @@
 'use server'
 
-import { NextApiRequest } from "next";
 import { revalidatePath } from "next/cache";
+import { NextRequest } from "next/server";
 
-export async function GET(req: NextApiRequest){
+export async function GET(req: NextRequest){
   revalidatePath("/", "layout");
   return Response.json({"200":"successful revalidation"});
 }
