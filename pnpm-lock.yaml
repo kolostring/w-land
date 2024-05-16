@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@storyblok/react':
+    specifier: ^3.0.10
+    version: 3.0.10(react-dom@18.3.1)(react@18.3.1)
   '@svgr/webpack':
     specifier: ^8.1.0
     version: 8.1.0(typescript@5.4.5)
@@ -1568,6 +1571,23 @@ packages:
   /@rushstack/eslint-patch@1.10.2:
     resolution: {integrity: sha512-hw437iINopmQuxWPSUEvqE56NCPsiU8N4AYtfHmJFckclktzK9YQJieD3XkDCDH4OjL+C7zgPUh73R/nrcHrqw==, tarball: https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.10.2.tgz}
     dev: true
+
+  /@storyblok/js@3.0.8:
+    resolution: {integrity: sha512-JY+abbswBId84Ubr0yRwNpq5Klf9546Ia2Qs1pn6en5Trz8o6EcBJIwxvR6evjJ0Vp2cLKT7MV1yfGLAtnzycA==, tarball: https://registry.npmjs.org/@storyblok/js/-/js-3.0.8.tgz}
+    dependencies:
+      storyblok-js-client: 6.7.3
+    dev: false
+
+  /@storyblok/react@3.0.10(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-7cyUdCoT/kTXFJLojPhqhguvcTjvIizPh3wf90Q99zrD7quMALX9E6Ag/gSGkyWdMTQ7Wcbh2zEQaZxEDx0FRg==, tarball: https://registry.npmjs.org/@storyblok/react/-/react-3.0.10.tgz}
+    peerDependencies:
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
+    dependencies:
+      '@storyblok/js': 3.0.8
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    dev: false
 
   /@svgr/babel-plugin-add-jsx-attribute@8.0.0(@babel/core@7.24.5):
     resolution: {integrity: sha512-b9MIk7yhdS1pMCZM8VeNfUlSKVRhsHZNMl5O9SfaX0l0t5wjdgu4IDzGB8bpnGBBOjGST3rRFVsaaEtI4W6f7g==, tarball: https://registry.npmjs.org/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-8.0.0.tgz}
@@ -4210,6 +4230,10 @@ packages:
   /source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==, tarball: https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.0.tgz}
     engines: {node: '>=0.10.0'}
+
+  /storyblok-js-client@6.7.3:
+    resolution: {integrity: sha512-fBBxtyju6xtFYgAgoWBaU7WagB8M6wN+N+A3UAhZtAPW8yZmlbr3nZu26ErYIbSLaeueyFlcNrI4Kag+Kszsdw==, tarball: https://registry.npmjs.org/storyblok-js-client/-/storyblok-js-client-6.7.3.tgz}
+    dev: false
 
   /streamsearch@1.1.0:
     resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==, tarball: https://registry.npmjs.org/streamsearch/-/streamsearch-1.1.0.tgz}
