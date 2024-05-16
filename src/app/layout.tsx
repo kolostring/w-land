@@ -4,13 +4,6 @@ import localFont from 'next/font/local'
 import "./globals.css";
 import Navbar from "@/lib/components/Navbar";
 import Footer from "@/lib/components/Footer";
-import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
-
-//StoryBlok init
-storyblokInit({
-  accessToken: process.env.STORYBLOK_API_TOKEN,
-  use: [apiPlugin]
-})
 
 //NextJS fonts init
 const inter = Inter({

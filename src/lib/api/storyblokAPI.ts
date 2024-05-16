@@ -1,4 +1,4 @@
-import { getStoryblokApi } from "@storyblok/react/rsc";
+import { apiPlugin, getStoryblokApi, storyblokInit } from "@storyblok/react/rsc";
 
 export type BStory = {
   name: string,
@@ -10,7 +10,12 @@ export type BStory = {
 }
 
 export default async function fetchData(slug: string){
-  const response = await getStoryblokApi().get('cdn/stories/', {
+  storyblokInit({
+    accessToken: process.env.STORYBLOK_API_TOKEN,
+    use: [apiPlugin]
+  })
+  
+  const response = await (getStoryblokApi()).get('cdn/stories/', {
     by_slugs: slug,
   });
 
