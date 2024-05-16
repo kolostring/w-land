@@ -3,11 +3,11 @@ import Arrow from "@/lib/assets/arrow-rotated-10x11.svg"
 import Link from "next/link";
 import LetsConnectBanner from "@/lib/components/LetsConnectBanner";
 import ProjectsSection from "@/lib/components/ProjectsSection";
-import { fetchServices } from "@/lib/api/mockedAPI";
+import fetchServicesRest from "@/lib/api/fetchServicesRest";
 
 export default async function Home() {
   const clients = [1,2,3];
-  const services = await fetchServices();
+  const services = await fetchServicesRest();
 
   return (
     <main className="container">

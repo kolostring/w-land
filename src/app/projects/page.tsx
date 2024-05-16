@@ -1,3 +1,4 @@
+import fetchServicesRest from "@/lib/api/fetchServicesRest";
 import { fetchProjects, fetchServicesTags } from "@/lib/api/mockedAPI";
 import Star from "@/lib/assets/star-31x31.svg"
 import LetsConnectBanner from "@/lib/components/LetsConnectBanner";
@@ -5,6 +6,8 @@ import ProjectsSelection from "@/lib/components/ProjectsSelection";
 
 
 export default async function Projects(){
+  const tags = (await fetchServicesRest()).map((service)=> service.tag);
+
   return <main className="container">
     <section className="hero pt-44">
       <h1 className="mb-5">Selected Projects</h1>
@@ -19,7 +22,7 @@ export default async function Projects(){
       </div>
     </section>
 
-    <ProjectsSelection projects={await fetchProjects()} tags={await fetchServicesTags()}/>
+    <ProjectsSelection projects={await fetchProjects()} tags={tags}/>
     <LetsConnectBanner />
   </main>
 }

@@ -1,10 +1,10 @@
-import { fetchServices } from "@/lib/api/mockedAPI"
+import fetchServicesRest from "@/lib/api/fetchServicesRest";
 import Star from "@/lib/assets/star-31x31.svg"
 import LetsConnectBanner from "@/lib/components/LetsConnectBanner"
 import ProjectsSection from "@/lib/components/ProjectsSection"
 
 export default async function Services(){
-  const services = await fetchServices();
+  const services = await fetchServicesRest();
 
   return <main className="container">
     <section className="hero pt-44">
