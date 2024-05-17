@@ -9,6 +9,23 @@ export type BStory = {
   full_slug: string
 }
 
+export type BImage = {
+  id: number,
+  alt: string,
+  name: string,
+  filename: string,
+}
+
+export type ProjectResponse = BStory & {
+  content: {
+    image: BImage,
+    projectTitle: string,
+    services: string[],
+    sections: {}[],
+    description: string,
+  }
+}
+
 export type ServicesResponse = BStory & {
   content: {
     tag: string,

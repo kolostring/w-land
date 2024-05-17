@@ -1,12 +1,13 @@
+import fetchProjectsRest from "@/lib/api/fetchProjectsRest";
 import fetchServicesRest from "@/lib/api/fetchServicesRest";
-import { fetchProjects, fetchServicesTags } from "@/lib/api/mockedAPI";
 import Star from "@/lib/assets/star-31x31.svg"
 import LetsConnectBanner from "@/lib/components/LetsConnectBanner";
 import ProjectsSelection from "@/lib/components/ProjectsSelection";
 
 
 export default async function Projects(){
-  const tags = (await fetchServicesRest()).map((service)=> service.tag);
+  const projects = await fetchProjectsRest();
+  const services = await fetchServicesRest();
 
   return <main className="container">
     <section className="hero pt-44">
@@ -22,7 +23,7 @@ export default async function Projects(){
       </div>
     </section>
 
-    <ProjectsSelection projects={await fetchProjects()} tags={tags}/>
+    <ProjectsSelection projects={projects} services={services}/>
     <LetsConnectBanner />
   </main>
 }
