@@ -2,6 +2,7 @@ import Arrow from "@/lib/assets/arrow-rotated-10x11.svg";
 import Link from "next/link";
 import { Service } from "../models/types";
 import { ProjectResponse } from "../models/responseTypes";
+import Image from "next/image";
 
 type FilteredProjectsProps = {
   projects: ProjectResponse[],
@@ -32,7 +33,14 @@ export default function FilteredProjects({projects, services, maxCount, selected
         .slice(0, maxCount)
         .map(({slug, content})=>{
       return <Link href={`/projects/${slug}`} key={slug} className="[&:hover_.arrow]:opacity-100">
-        <div className="mb-4 aspect-[7/10] rounded-2xl bg-design-background-secondary"></div>
+        <div className="mb-4 aspect-[7/10] rounded-2xl bg-design-background-secondary relative overflow-hidden">
+          <Image alt={content.image.alt ?? "" ?? "#"}
+              src={content.image.filename + "/m/0x600/filters:quality(80)"}
+              width={0}
+              height={0}
+              unoptimized
+              className="w-full h-full object-cover object-top" />
+        </div>
 
         <div className="grid grid-cols-[9fr_min-content]">
           <h3>{content.projectTitle}</h3>
