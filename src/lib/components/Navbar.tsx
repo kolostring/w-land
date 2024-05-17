@@ -41,7 +41,7 @@ export default function Navbar(){
 
   return <nav 
   ref={navRef} 
-  className={`w-full fixed bg-opacity-90 bg-design-background-primary backdrop-blur-sm ${!isScrolling ? "transition-transform" : ""}`} 
+  className={`w-full fixed z-10 bg-opacity-90 bg-design-background-primary backdrop-blur-sm ${!isScrolling ? "transition-transform" : ""}`} 
   style={{transform: `translate(0px, ${isScrolling ? scrollVisibilityPercentRef.current : roundVisibility()}%)`}}
   >
     <div className="container flex items-center font-body mt-9 mb-6">
