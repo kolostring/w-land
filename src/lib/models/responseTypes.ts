@@ -21,7 +21,18 @@ export type ProjectResponse = BStory & {
     image: BImage,
     projectTitle: string,
     services: string[],
-    sections: {}[],
+    sections: {
+      _uid: string,
+      header: string,
+      linkURL: string,
+      linkText: string,
+      images: BImage[],
+      subSections: {
+        _uid: string,
+        subHeader: string,
+        text: string
+      }[]
+    }[],
     description: string,
   }
 }

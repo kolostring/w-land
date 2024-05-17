@@ -2,10 +2,11 @@
 
 import { useCallback, useState } from "react";
 import FilteredProjects from "./FilteredProjects";
-import { Project, Service } from "@/lib/models/types";
+import { Service } from "@/lib/models/types";
+import { ProjectResponse } from "../models/responseTypes";
 
 export type ProjectsSelectionProps = {
-  projects: Project[],
+  projects: ProjectResponse[],
   services: Service[],
 }
 
