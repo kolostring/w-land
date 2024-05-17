@@ -39,3 +39,11 @@ export type MemberResponse = BStory & {
     members: Member[]
   }
 }
+
+export type SkillSetResponse = BStory & {
+  content: {
+    skillset: {
+      name: string
+    }[],
+  }
+}
