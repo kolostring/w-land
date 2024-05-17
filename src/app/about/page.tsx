@@ -3,6 +3,7 @@ import fetchSkillSetRest from "@/lib/api/fetchSkillSetRest";
 import Star from "@/lib/assets/star-31x31.svg"
 import LetsConnectBanner from "@/lib/components/LetsConnectBanner";
 import ProjectsSection from "@/lib/components/ProjectsSection";
+import Image from "next/image";
 
 const clients = [1,2,3];
 
@@ -43,9 +44,17 @@ export default async function AboutUs(){
       </div>
 
       <div className="grid grid-cols-3 items-end gap-14 w-full mb-10">
-        {team.map(({fullName, role})=>{
+        {team.content.members.map(({fullName, role, image})=>{
           return <div key={fullName} className="flex items-center gap-6 rounded-2xl aspect-[36/18] px-8 bg-design-background-secondary">
-            <div className="bg-design-secondary-text h-[104px] aspect-square rounded-full"></div>
+            <div className="bg-design-secondary-text h-[104px] aspect-square rounded-full relative overflow-hidden">
+              <Image 
+              src={image.filename + "/m/0x130" ?? ""} 
+              alt={image.alt ?? ""} 
+              width={0} 
+              height={0} 
+              unoptimized
+              className="w-full h-full object-cover object-top" />
+            </div>
             <div>
               <h3 className="self-end max-w-[6ch]">{fullName}</h3>
               <h4 className="uppercase max-w-[17ch] text-xs">{role}</h4>
@@ -61,9 +70,17 @@ export default async function AboutUs(){
       </div>
 
       <div className="grid grid-cols-3 gap-14 w-full">
-        {collaborators.map(({fullName, role})=>{
+      {collaborators.content.members.map(({fullName, role, image})=>{
           return <div key={fullName} className="flex items-center gap-6 rounded-2xl aspect-[36/18] px-8 bg-design-background-secondary">
-            <div className="bg-design-secondary-text h-[104px] aspect-square rounded-full"></div>
+            <div className="bg-design-secondary-text h-[104px] aspect-square rounded-full relative overflow-hidden">
+              <Image 
+              src={image.filename + "/m/0x130" ?? ""} 
+              alt={image.alt ?? ""} 
+              width={0} 
+              height={0} 
+              unoptimized
+              className="w-full h-full object-cover object-top" />
+            </div>
             <div>
               <h3 className="self-end max-w-[10ch]">{fullName}</h3>
               <h4 className="uppercase max-w-[17ch] text-xs">{role}</h4>

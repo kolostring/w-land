@@ -1,5 +1,3 @@
-import { Member } from "./types"
-
 export type BStory = {
   name: string,
   lang: string,
@@ -45,9 +43,13 @@ export type ServicesResponse = BStory & {
   }
 }
 
-export type MemberResponse = BStory & {
+export type MembersCollectionResponse = BStory & {
   content: {
-    members: Member[]
+    members: {
+      fullName: string,
+      role: string,
+      image: BImage,
+    }[]
   }
 }
 
