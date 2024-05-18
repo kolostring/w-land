@@ -1,24 +1,24 @@
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from "react";
 
-export default function useScroll(){
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const [isScrolling, setIsScrolling] = useState(false);
-  
-    useLayoutEffect(() => {
-      function handleScroll() {
-        setScrollPosition(window.scrollY);
-        setIsScrolling(true);
-      }
-      function handleScrollEnd() {
-        setIsScrolling(false);
-      }
+export default function useScroll() {
+	const [scrollPosition, setScrollPosition] = useState(0);
+	const [isScrolling, setIsScrolling] = useState(false);
 
-      window.addEventListener('scroll', handleScroll);
-      window.addEventListener("scrollend", handleScrollEnd);
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, []);
+	useLayoutEffect(() => {
+		function handleScroll() {
+			setScrollPosition(window.scrollY);
+			setIsScrolling(true);
+		}
+		function handleScrollEnd() {
+			setIsScrolling(false);
+		}
 
-    return  {scrollPosition, isScrolling};
-  }
+		window.addEventListener("scroll", handleScroll);
+		window.addEventListener("scrollend", handleScrollEnd);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	return { scrollPosition, isScrolling };
+}
