@@ -59,9 +59,8 @@ export default async function ProjectInfo({
 								currentProject?.content.image.filename +
 									"/m/filters:quality(70)" ?? ""
 							}
-							width={0}
-							height={0}
-							unoptimized
+							width={800}
+							height={700}
 							className="w-full object-cover object-top"
 						/>
 					</div>
@@ -84,8 +83,8 @@ export default async function ProjectInfo({
 
 							<hr />
 
-							<div className="mb-24 grid grid-cols-3 gap-x-14">
-								<div className="pt-14">
+							<div className="mb-24 pt-14 grid grid-cols-3 gap-x-14">
+								<div className="">
 									{subSections.map(({ subHeader, text }) => {
 										return (
 											<>
@@ -98,7 +97,19 @@ export default async function ProjectInfo({
 									})}
 								</div>
 
-								<div className="col-span-2 max-w-[79ch]"></div>
+								<div className="col-span-2 grid grid-cols-2 gap-10 [&>*:nth-child(3n+1)]:col-span-2 [&>*:nth-child(3n+1)]:h-[473px]">
+									{images.map(({ filename, id, alt }) => (
+										<div key={id} className="relative flex-1 rounded-2xl bg-design-background-secondary overflow-hidden h-[359px]">
+											<Image
+												src={filename + "/m/filters:quality(70)"}
+												alt={alt}
+												height={400}
+												width={400}
+												className="w-full h-full object-cover"
+											/>
+										</div>
+									))}
+								</div>
 							</div>
 						</section>
 					);
