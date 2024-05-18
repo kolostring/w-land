@@ -72,9 +72,9 @@ export default async function Home() {
           <h3 className="col-span-2 mb-12">Here are some select projects that showcase my passion for creating memorable web experiences, products, and brands to life.</h3>
           
           <div className="grid grid-cols-3 col-span-3 gap-14">
-            {services.map(({title})=>{
-              return <Link href={`/services/#${title}`} key={title} className="grid grid-cols-[1fr_auto] p-8 pr-6 rounded-2xl bg-design-primary-text hover:bg-design-accent [&:hover>div]:bg-design-background-primary [&:hover>div]:text-design-primary-text transition-colors">
-                <h3 className="text-4xl tracking-tight max-w-[12ch] text-design-background-primary">{title}</h3>
+            {services.map(({content, uuid})=>{
+              return <Link href={`/services/#${content.tag}`} key={uuid} className="grid grid-cols-[1fr_auto] p-8 pr-6 rounded-2xl bg-design-primary-text hover:bg-design-accent [&:hover>div]:bg-design-background-primary [&:hover>div]:text-design-primary-text transition-colors">
+                <h3 className="text-4xl tracking-tight max-w-[12ch] text-design-background-primary">{content.title}</h3>
                 <div className="flex w-11 aspect-square rounded-full self-end text-design-background-primary bg-design-accent transition-colors">
                   <Arrow className="h-5 w-5 m-auto"/>
                 </div>

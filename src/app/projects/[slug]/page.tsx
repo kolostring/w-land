@@ -19,7 +19,7 @@ export default async function ProjectInfo({params}: Readonly<{params: {slug: str
 
   const getServiceTag = (serviceUUID: string) => {
     const res = services.find(({uuid}) => (uuid === serviceUUID));
-    return res !== undefined ? res.tag : "undefined";
+    return res !== undefined ? res.content.tag : "undefined";
   }
 
   return <main className="container">

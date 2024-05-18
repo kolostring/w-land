@@ -1,12 +1,11 @@
 import Arrow from "@/lib/assets/arrow-rotated-10x11.svg";
 import Link from "next/link";
-import { Service } from "../models/types";
-import { ProjectResponse } from "../models/responseTypes";
+import { ProjectResponse, ServiceResponse } from "../models/responseTypes";
 import Image from "next/image";
 
 type FilteredProjectsProps = {
   projects: ProjectResponse[],
-  services: Service[],
+  services: ServiceResponse[],
   maxCount?: number | undefined,
   selectedServicesUUID: string[]
 }
@@ -16,7 +15,7 @@ export default function FilteredProjects({projects, services, maxCount, selected
   const getServiceTag = (serviceUUID: string)=>{
     const res = services.find(({uuid})=>uuid === serviceUUID);
     
-    return res !== undefined ? res.tag : "undefined";
+    return res !== undefined ? res.content.tag : "undefined";
   }
 
   const servicesAreSelected = (servicesTags: string[])=>{
@@ -32,14 +31,14 @@ export default function FilteredProjects({projects, services, maxCount, selected
         .filter(({content}) => (selectedServicesUUID.length === 0 || servicesAreSelected(content.services)))
         .slice(0, maxCount)
         .map(({slug, content})=>{
-      return <Link href={`/projects/${slug}`} key={slug} className="[&:hover_.arrow]:opacity-100">
+      return <Link href={`/projects/${slug}`} key={slug} className="[&:hover_.arrow]:opacity-100 [&:hover_img]:scale-105">
         <div className="mb-4 aspect-[7/10] rounded-2xl bg-design-background-secondary relative overflow-hidden">
           <Image alt={content.image.alt ?? "" ?? "#"}
               src={content.image.filename + "/m/0x600/filters:quality(80)"}
               width={0}
               height={0}
               unoptimized
-              className="w-full h-full object-cover object-top" />
+              className="w-full h-full object-cover object-top transition-transform" />
         </div>
 
         <div className="grid grid-cols-[9fr_min-content]">

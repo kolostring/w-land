@@ -2,12 +2,11 @@
 
 import { useCallback, useState } from "react";
 import FilteredProjects from "./FilteredProjects";
-import { Service } from "@/lib/models/types";
-import { ProjectResponse } from "../models/responseTypes";
+import { ProjectResponse, ServiceResponse } from "../models/responseTypes";
 
 export type ProjectsSelectionProps = {
   projects: ProjectResponse[],
-  services: Service[],
+  services: ServiceResponse[],
 }
 
 export default function ProjectsSelection({projects, services}: ProjectsSelectionProps){
@@ -15,7 +14,7 @@ export default function ProjectsSelection({projects, services}: ProjectsSelectio
 
   const getFilteredServicesUUID = useCallback(() => {
     return filteredTags.map((filteredTag) => {
-      const res = services.find(({tag}) => filteredTag === tag);
+      const res = services.find(({content}) => filteredTag === content.tag);
       return res !== undefined ? res.uuid : "undefined"; 
     })
   }, [filteredTags, services])
@@ -38,9 +37,9 @@ export default function ProjectsSelection({projects, services}: ProjectsSelectio
       <hr />
 
       <div className="mb-14">
-        {services.map(({uuid, tag}) => {
+        {services.map(({uuid, content}) => {
           return <span key={uuid}>
-            <button className={`px-4 py-2 rounded-full border mr-4 transition-colors ${filteredTags.includes(tag) ? "bg-design-accent border-design-accent text-design-background-primary": ""} `} onClick={handleClick}>{tag}</button>
+            <button className={`px-4 py-2 rounded-full border mr-4 transition-colors ${filteredTags.includes(content.tag) ? "bg-design-accent border-design-accent text-design-background-primary": ""} `} onClick={handleClick}>{content.tag}</button>
           </span>
         })}
       </div>

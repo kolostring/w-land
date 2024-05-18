@@ -25,11 +25,14 @@ export default async function Services(){
       <hr />
 
       <div className="grid grid-cols-3 gap-x-14 gap-y-8">
-        {services.map(({title, descriptionList})=>{
-          return <div key={title} id={title}>
-            <h3 className="mb-2">{title}</h3>
+        {services.map(({content, uuid})=>{
+          return <div key={content.title} id={uuid}>
+            <h3 className="mb-2">{content.title}</h3>
             <ul className="list-disc list-outside pl-6">
-              {descriptionList.map((description, index)=>{
+              {content.description
+                .split("- ")
+                .filter((description) => description.length > 0)
+                .map((description, index) => {
                 return <li key={index}>
                   {description}
                 </li>

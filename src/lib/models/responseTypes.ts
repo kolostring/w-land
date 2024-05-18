@@ -35,7 +35,7 @@ export type ProjectResponse = BStory & {
   }
 }
 
-export type ServicesResponse = BStory & {
+export type ServiceResponse = BStory & {
   content: {
     tag: string,
     title: string,

@@ -1,16 +1,6 @@
-import { ServicesResponse } from "../models/responseTypes";
-import { Service } from "../models/types";
+import { ServiceResponse } from "../models/responseTypes";
 import fetchDataList from "./storyblokAPI"
 
-export default async function fetchServicesRest(): Promise<Service[]>{
-  const responseArr =(await fetchDataList("services/*")) as ServicesResponse[];
-  
-  return responseArr.map((resp)=>{
-    return {
-      uuid: resp.uuid,
-      tag: resp.content.tag,
-      title: resp.content.title,
-      descriptionList: resp.content.description.split("- ").filter((str)=>str.length > 0),
-    }
-  })
+export default async function fetchServicesRest(){
+  return (await fetchDataList("services/*")) as ServiceResponse[];
 }
