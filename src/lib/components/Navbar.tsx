@@ -15,7 +15,7 @@ const links: { text: string; href: string }[] = [
 export default function Navbar() {
 	const pathname = usePathname();
 
-	const { scrollPosition, isScrolling } = useScroll(85);
+	const { scrollPosition, isScrolling } = useScroll(35, 1000);
 	const lastScrollRef = useRef<number>(0);
 	const scrollVisibilityPercentRef = useRef<number>(0);
 
@@ -47,7 +47,7 @@ export default function Navbar() {
 	return (
 		<nav
 			ref={navRef}
-			className={`fixed z-10 w-full bg-design-background-primary bg-opacity-90 backdrop-blur-sm transition-transform ${isScrolling ? "ease-linear" : ""}`}
+			className={`fixed z-10 w-full bg-design-background-primary bg-opacity-90 backdrop-blur-sm ${!isScrolling ? "transition-transform" : ""}`}
 			style={{
 				transform: `translate(0px, ${isScrolling ? scrollVisibilityPercentRef.current : roundVisibility()}%)`,
 			}}
