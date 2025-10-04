@@ -29,7 +29,7 @@ export default async function Services() {
               politics, development, and visual storytelling, our previous
               experiences include working in academia, the United Nations, media
               outlets, NGOs and philanthropic organizations. As a team, we have
-              also sought further education, with master's degrees and an
+              also sought further education, with master`&apos;`s degrees and an
               ongoing Ph.D. in our respective fields.
             </p>
           </div>
@@ -43,7 +43,7 @@ export default async function Services() {
             className="ml-auto flex items-center gap-2 text-design-accent"
             href="/services"
           >
-            <span>Let's connect</span>
+            <span>Let`&apos;`s connect</span>
             <Arrow />
           </Link>
         </div>
