@@ -1,25 +1,28 @@
-export default function throttle(mainFunction: (...args: any[]) => any, delay: number) {
-	let isBusy = false;
-	let waitingArgs: null | any[] = null;
+export default function throttle<Params extends unknown[], Return>(
+  mainFunction: (...args: Params) => Return,
+  delay: number
+) {
+  let isBusy = false;
+  let waitingArgs: null | Params = null;
 
-	const timeoutFunc = () => {
-		if (waitingArgs == null) {
-			isBusy = false;
-		} else {
-			mainFunction(...waitingArgs);
-			waitingArgs = null;
-			setTimeout(timeoutFunc, delay);
-		}
-	};
+  const timeoutFunc = () => {
+    if (waitingArgs == null) {
+      isBusy = false;
+    } else {
+      mainFunction(...waitingArgs);
+      waitingArgs = null;
+      setTimeout(timeoutFunc, delay);
+    }
+  };
 
-	return (...args: any[]) => {
-		if (isBusy) {
-			waitingArgs = args;
-			return;
-		}
+  return (...args: Params) => {
+    if (isBusy) {
+      waitingArgs = args;
+      return;
+    }
 
-		mainFunction(...args);
-		isBusy = true;
-		setTimeout(timeoutFunc, delay);
-	};
+    mainFunction(...args);
+    isBusy = true;
+    setTimeout(timeoutFunc, delay);
+  };
 }

@@ -2,42 +2,38 @@ import { useState, useLayoutEffect } from "react";
 import debounce from "../utils/debounce";
 import throttle from "../utils/throttle";
 export default function useScroll(
-	throttleDelay: number,
-	debounceScrollEndDelay: number,
+  throttleDelay: number,
+  debounceScrollEndDelay: number
 ) {
-	const [scrollPosition, setScrollPosition] = useState(0);
-	const [isScrolling, setIsScrolling] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
 
-	useLayoutEffect(() => {
+  useLayoutEffect(() => {
+    const handleScrollEnd = () => {
+      setScrollPosition(window.scrollY);
+      setIsScrolling(false);
+    };
 
-		const handleScrollEnd = () => {
-			setScrollPosition(window.scrollY);
-			setIsScrolling(false);
-		};
+    const debouncedHandleScrollEnd = debounce(
+      handleScrollEnd,
+      debounceScrollEndDelay
+    );
 
-		const debouncedHandleScrollEnd = debounce(
-			handleScrollEnd,
-			debounceScrollEndDelay,
-		);
+    const handleScroll = () => {
+      debouncedHandleScrollEnd();
+      setScrollPosition(window.scrollY);
+      setIsScrolling(true);
+    };
 
-		const handleScroll = () => {
-			debouncedHandleScrollEnd();
-			setScrollPosition(window.scrollY);
-			setIsScrolling(true);
-		};
+    const throttledHandleScroll = throttle(handleScroll, throttleDelay);
 
-		const throttledHandleScroll = throttle(
-			handleScroll,
-			throttleDelay
-		)
+    window.addEventListener("scroll", throttledHandleScroll);
+    window.addEventListener("scrollend", handleScrollEnd);
+    return () => {
+      window.removeEventListener("scroll", throttledHandleScroll);
+      window.removeEventListener("scrollend", handleScrollEnd);
+    };
+  }, [throttleDelay, debounceScrollEndDelay]);
 
-		window.addEventListener("scroll", throttledHandleScroll);
-		window.addEventListener("scrollend", handleScrollEnd);
-		return () => {
-			window.removeEventListener("scroll", throttledHandleScroll);
-			window.removeEventListener("scrollend", handleScrollEnd);
-		};
-	}, [throttleDelay, debounceScrollEndDelay]);
-
-	return { scrollPosition, isScrolling };
+  return { scrollPosition, isScrolling };
 }

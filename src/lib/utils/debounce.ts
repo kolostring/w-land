@@ -1,14 +1,14 @@
-export default function debounce(
-	mainFunction: (...args: any[]) => any,
-	delay: number,
+export default function debounce<Params extends unknown[], Return>(
+  mainFunction: (...args: Params) => Return,
+  delay: number
 ) {
-	let timer: NodeJS.Timeout;
+  let timer: NodeJS.Timeout;
 
-	return (...args: any[]) => {
-		clearTimeout(timer);
+  return (...args: Params) => {
+    clearTimeout(timer);
 
-		timer = setTimeout(() => {
-			mainFunction(...args);
-		}, delay);
-	};
+    timer = setTimeout(() => {
+      mainFunction(...args);
+    }, delay);
+  };
 }
