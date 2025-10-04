@@ -102,7 +102,7 @@ export default async function AboutUs() {
                 >
                   <div className="relative aspect-square h-[104px] overflow-hidden rounded-full bg-design-secondary-text">
                     <Image
-                      src={image.filename + "/m/0x130" ?? ""}
+                      src={image.filename ?? ""}
                       alt={image.alt ?? ""}
                       width={0}
                       height={0}
